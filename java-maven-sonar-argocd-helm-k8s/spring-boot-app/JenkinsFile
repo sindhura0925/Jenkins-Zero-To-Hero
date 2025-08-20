@@ -53,7 +53,7 @@ pipeline {
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
-                    rm -rf ${GIT_REPO_NAME}
+                    [ -e Jenkins-Zero-To-Hero ] && rm -rf Jenkins-Zero-To-Hero
                     git clone https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}.git
                     cd ${GIT_REPO_NAME}
                     git config user.email "sindhura0925@gmail.com"
